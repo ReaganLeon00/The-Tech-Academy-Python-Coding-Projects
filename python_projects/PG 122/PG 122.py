@@ -35,9 +35,9 @@ class MainWindow(Frame):
         print(test1)
        
         dirVariable = filedialog.askdirectory()
-        self.lblMsg.config(text='Your chosen file directory:')
+      
         self.txt_browse1.insert(0, dirVariable)
-        print(self.txt_browse1.get())
+        
 
     def close(self):
         self.master.destroy()
