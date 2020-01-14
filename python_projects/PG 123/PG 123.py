@@ -141,7 +141,7 @@ class TheMainWindow(Frame):
                     'Arial', 10), fg='black', width=58)
                 self.txtBox2.grid(row=3, column=1, padx=(30, 0), pady=(0, 0))
 
-
+            dirVariable = filedialog.askdirectory()
             self.txtBox2.insert(0, dirVariable)
             
             if (self.txtBox2.get() == '') or (self.txtBox1.get() == None):
