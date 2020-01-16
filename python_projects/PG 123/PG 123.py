@@ -141,30 +141,31 @@ class TheMainWindow(Frame):
                     'Arial', 10), fg='black', width=58)
                 self.txtBox2.grid(row=3, column=1, padx=(30, 0), pady=(0, 0))
 
-            dirVariable = filedialog.askdirectory()
-            self.txtBox2.insert(0, dirVariable)
+    def browseDestination(self):
+        dirVariable = filedialog.askdirectory()
+        self.txtBox2.insert(0, dirVariable)
             
-            if (self.txtBox2.get() == '') or (self.txtBox1.get() == None):
-                self.lblMsg2.config(
-                    bg='lightblue', text='Please select a directory')
-            elif (self.txtBox1.get() == self.txtBox2.get()):
-                self.lblMsg2.config(
-                    bg='lightblue', text='Your directory must be different from your source directory')
+        if (self.txtBox2.get() == '') or (self.txtBox1.get() == None):
+            self.lblMsg2.config(
+                bg='lightblue', text='Please select a directory')
+        elif (self.txtBox1.get() == self.txtBox2.get()):
+            self.lblMsg2.config(
+                bg='lightblue', text='Your directory must be different from your source directory')
 
-                self.txtBox2.delete(0, END)
-            else:
-                self.lblMsg1.config(
-                    bg='lightgray', text='')
+            self.txtBox2.delete(0, END)
+        else:
+            self.lblMsg1.config(
+                bg='lightgray', text='')
 
-                self.lblMsg2.config(
-                    bg='lightgreen', text="Press 'GO!' to cut and paste .txt files found to the destination directory!")
+            self.lblMsg2.config(
+                bg='lightgreen', text="Press 'GO!' to cut and paste .txt files found to the destination directory!")
 
-                self.btnGo = Button(
-                    self.master, text='GO!', width=8, height=2, command=self.go)
-                self.btnGo.grid(row=4, column=1, sticky=SW, padx=(36,0))
+            self.btnGo = Button(
+                self.master, text='GO!', width=8, height=2, command=self.go)
+            self.btnGo.grid(row=4, column=1, sticky=SW, padx=(36,0))
 
-            fPath = self.txtBox2.get()
-            print('This is the destination directory that was selected: \n{}\n'.format(fPath))
+        fPath = self.txtBox2.get()
+        print('This is the destination directory that was selected: \n{}\n'.format(fPath))
 
     def go(self):
         
